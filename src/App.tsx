@@ -20,7 +20,9 @@ function App() {
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
   }
-
+    
+    <Authenticator>
+      {({ signOut, user }) => (
   return (
     <main>
       <h1>My todos</h1>
@@ -39,8 +41,12 @@ function App() {
           Review next step of this tutorial.
         </a>
       </div>
+          <button onClick={signOut}>Sign out</button>
     </main>
-  );
+    
+      )}
+    </Authenticator>
+  )
 }
 
 export default App;
